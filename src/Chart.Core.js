@@ -1690,7 +1690,9 @@
 
 				}
 				if (this.xLabelRotation > 0){
-					this.endPoint -= Math.sin(toRadians(this.xLabelRotation))*originalLabelWidth + 3;
+					if(this.showXLabels) {
+						this.endPoint -= Math.sin(toRadians(this.xLabelRotation))*originalLabelWidth + 3;
+					}
 				}
 			}
 			else{
@@ -1834,7 +1836,9 @@
 					ctx.font = this.font;
 					ctx.textAlign = (isRotated) ? "right" : "center";
 					ctx.textBaseline = (isRotated) ? "middle" : "top";
-					ctx.fillText(label, 0, 0);
+					if(this.showXLabels) {
+						ctx.fillText(label, 0, 0);
+					}
 					ctx.restore();
 				},this);
 
